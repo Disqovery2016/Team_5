@@ -8,10 +8,48 @@ and open the template in the editor.
   <fieldset>
     <legend>Personal information:</legend>
     Vehicle Details:<br>
+    <?php
+    include("data.php");
+    $sql = 'SELECT vehicle_no,name, validity FROM vehicle';
+ 
+    $retval = mysqli_query($conn, $sql );
+   
+   if(! $retval ) {
+      die('Could not get data: ' . mysqli_error());
+   }
+   
+   while($row = mysqli_fetch_array($retval, MYSQLi_ASSOC)) {
+      echo "vehicle_no :{$row['vehicle_no']}  <br> ".
+         "NAME : {$row['emp_name']} <br> ".
+         "validity : {$row['validity']} <br> ".
+         "--------------------------------<br>";
+   }
+   
+   echo "Fetched data successfully\n";
+    ?>
     select $name from vehicle;
     <form action="newjavascript.js">
     </form>>
     License Details:<br>
+    <?php
+    include("data.php");
+    $sql = 'SELECT license_no,name, exp_date FROM license';
+ 
+    $retval = mysqli_query($conn, $sql );
+   
+   if(! $retval ) {
+      die('Could not get data: ' . mysqli_error());
+   }
+   
+   while($row = mysqli_fetch_array($retval, MYSQLi_ASSOC)) {
+      echo "license_no :{$row['license_no']}  <br> ".
+         "NAME : {$row['emp_name']} <br> ".
+         "exp_date : {$row['exp_date']} <br> ".
+         "--------------------------------<br>";
+   }
+   
+   echo "Fetched data successfully\n";
+    ?>
     Dues :<br>
     
     
